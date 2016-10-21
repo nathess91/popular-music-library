@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="popMusicLibrary">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Popped Music</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="/scripts/app.js"></script>
+    <script src="scripts/controllers/SongsIndexController.js"></script>
+    <script src="scripts/controllers/SongsShowController.js"></script>
+
+  </head>
+  
+  <body>
+    <a id="jumbo" href="/"><div class="jumbotron">
+      <div class="container">
+        <h1>Popped Music</h1>
+        <p>discover who's behind the most popular songs</p>
+      </div>
+    </div></a>
+
+    <div ng-view></div>
+
+  </body>
+
+</html>
