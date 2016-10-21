@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+      <form class="form-horizontal" ng-submit="songsIndexCtrl.createSong()">
+        <fieldset>
+
+          <!-- ADD NEW BOOK -->
+          <legend>Add New Song</legend>
+
+          <!-- Title input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Title</label>
+            <div class="col-md-4">
+            <input id="title" ng-model="songsIndexCtrl.newSong.title" type="text" class="form-control input-md" required="">
+            </div>
+          </div>
+
+          <!-- Artist input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Artist</label>
+            <div class="col-md-4">
+            <input ng-model="songsIndexCtrl.newSong.artist" type="text" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Release year input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Release Year</label>
+            <div class="col-md-4">
+            <input ng-model="songsIndexCtrl.newSong.year" type="text" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Song writers input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Writer(s)</label>
+            <div class="col-md-4">
+            <input ng-model="songsIndexCtrl.newSong.writers" type="text" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Song producers input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Producer(s)</label>
+            <div class="col-md-4">
+            <input ng-model="songsIndexCtrl.newSong.producers" type="text" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Album art url input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Album Art URL</label>
+            <div class="col-md-4">
+            <input ng-model="songsIndexCtrl.newSong.albumArt" type="text" class="form-control input-md">
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+              <button id="add" class="btn btn-success">Pop It!</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+
+  <input id="search-bar" type="text" class="form-control" ng-model="searchText" placeholder="Search Songs">
+  <div ng-repeat="song in songsIndexCtrl.songs | orderBy: 'year' | filter: searchText" class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <div class='row'>
+            <div class="col-md-3 col-xs-12 thumbnail">
+              <img src={{song.albumArt}} alt="album art">
+              <input ng-show="editing" ng-model="song.albumArt" type="text" class="form-control input-md">
+            </div>
+
+            <div class="col-md-9 col-xs-12">
+              <ul class="list-group form-inline">
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Title:</h4>
+                  <span ng-hide="editing"><a ng-href="songs/{{song._id}}">{{song.title}}</a></span>
+                  <input ng-show="editing" ng-model="song.title" type="text" class="form-control input-md">
+                </li>
+
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Artist:</h4>
+                  <span ng-hide="editing">{{song.artist}}</span>
+                  <input ng-show="editing" ng-model="song.artist" type="text" class="form-control input-md">
+                </li>
+
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Release Year:</h4>
+                  <span ng-hide="editing">{{song.year}}</span>
+                  <input ng-show="editing" ng-model="book.releaseDate" type="text" class="form-control input-md">
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+          <div class='panel-footer'>
+            <div class='panel-footer'>
+              <button class='btn btn-danger' ng-click="songsIndexCtrl.deleteSong(song)">Delete Song</button>
+              <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Song</button>
+              <button class='btn btn-success' ng-show="editing" ng-click="songsIndexCtrl.editSong(song); editing = false">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
