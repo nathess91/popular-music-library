@@ -27,6 +27,18 @@
               <input ng-show="editing" ng-model="song.year" type="text" class="form-control input-md">
             </li>
 
+            <li class="list-group-item">
+              <h4 class='inline-header'>Writer(s):</h4>
+              <span ng-hide="editing">{{songsShowCtrl.song.writers}}</span>
+              <input ng-show="editing" ng-model="song.writers" type="text" class="form-control input-md">
+            </li>
+
+            <li class="list-group-item">
+              <h4 class='inline-header'>Producer(s):</h4>
+              <span ng-hide="editing">{{songsShowCtrl.song.producers}}</span>
+              <input ng-show="editing" ng-model="song.producers" type="text" class="form-control input-md">
+            </li>
+
           </ul>
         </div>
       </div>
