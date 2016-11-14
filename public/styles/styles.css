@@ -1,0 +1,28 @@
+.pop {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+}
+
+.glyphicon-cd {
+  font-size: 0.8em;
+}
+
+.music {
+  font-family: 'Oswald', sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #008966;
+}
+
+#search-bar {
+  margin-bottom: 15px;
+}
+
+.panel-body {
+  padding-left: 30px;
+}
