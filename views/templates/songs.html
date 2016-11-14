@@ -10,9 +10,9 @@
 
           <!-- Title input-->
           <div class="form-group">
-            <label class="col-md-4 control-label">Title</label>
+            <label class="col-md-4 control-label"></label>
             <div class="col-md-4">
-            <input id="title" ng-model="songsIndexCtrl.newSong.title" type="text" class="form-control input-md" required="">
+            <input id="title" ng-model="songsIndexCtrl.newSong.title" type="text" class="form-control input-md" required="" placeholder="Title">
             </div>
           </div>
 
@@ -70,8 +70,8 @@
 
 
   <input id="search-bar" type="text" class="form-control" ng-model="searchText" placeholder="Search Songs">
-  <div ng-repeat="song in songsIndexCtrl.songs | orderBy: 'year' | filter: searchText" class="row">
-    <div class="col-md-10 col-md-offset-1">
+  <div ng-repeat="song in songsIndexCtrl.songs | orderBy: 'year' | filter: searchText" class="row" infinite-scroll="nextPage()" infinite-scroll-distance="0.1" infinite-scroll-disabled="busy || noMoreData">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-body">
 
@@ -115,5 +115,6 @@
         </div>
       </div>
     </div>
+    <div ng-show='busy'>Loading data...</div>
   </div>
 </div>
